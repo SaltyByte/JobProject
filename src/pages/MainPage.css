@@ -1,14 +1,13 @@
-.App {
-  text-align: center;
+.page {
+  text-align: left;
+  position: relative;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.audio-players {
+  margin-top: 35px;
+  margin-left: 20px;
+}
+.controls {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }

@@ -1,0 +1,14 @@
+.audio-block {
+  padding: 5px;
+  margin-bottom: 20px;
+  background-color: gray;
+  height: 3vh;
+  width: 70%;
+  position: relative;
+  border-radius: 10px;
+}
+.checkbox {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+}
