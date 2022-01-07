@@ -21,11 +21,11 @@ const MainPage = () => {
 
   const playHandle = () => {
     console.log("Play");
-    setIsPlaying(true);
+    setIsPlaying(() => true);
   };
   const stopHandle = () => {
     console.log("Stop");
-    setIsPlaying(false);
+    setIsPlaying(() => false);
   };
 
   return (

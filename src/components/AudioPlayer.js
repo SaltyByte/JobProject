@@ -14,25 +14,26 @@ const AudioPlayer = (props) => {
   };
 
   useEffect(() => {
+    console.log("Inside useEffect");
+    if (props.isLooping) {
+      audio.loop = true;
+    } else if (!props.isLooping) {
+      audio.loop = false;
+    }
+    if (isMuted) {
+      audio.muted = true;
+    } else if (!isMuted) {
+      audio.muted = false;
+    }
     if (!props.isPlaying) {
       audio.pause();
-    } else if (props.isPlaying && !isMuted) {
+    } else if ((props.isPlaying && !isMuted) || audio.ended) {
       audio.play();
     }
-  }, [props.isPlaying, audio, isMuted]);
+  }, [props.isPlaying, props.isLooping, audio, isMuted]);
 
   return (
     <div className="audio-block">
-      <div className="audio">
-        {/* <audio
-          loop={props.isLooping}
-          muted={isMuted}
-          autoPlay={props.isPlaying}
-        >
-          <source src={props.src} type="audio/mp3"></source>
-          Your browser does not support the audio element.
-        </audio> */}
-      </div>
       <div className="checkbox">
         <ToggleButton value={isMuted} onToggle={handleMute} />
       </div>
