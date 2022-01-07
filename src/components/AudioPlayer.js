@@ -3,10 +3,22 @@ import ToggleButton from "react-toggle-button";
 
 import "./AudioPlayer.css";
 
+/*
+  Audio player component
+  Each player takes the props:
+  src - The mp3 audio file source
+  isPlaying - Does the player should be playing
+  isLooping - Does the player should be looping
+  setPlaying - set the state of the playing prop
+  name - The file name, what will be displayed
+  backgroundColor - Color of row
+*/
 const AudioPlayer = (props) => {
+  // states of the component
   const [audio] = useState(new Audio(props.src));
   const [isMuted, setIsMuted] = useState(false);
 
+  // handles mute
   const handleMute = () => {
     console.log("Mute");
     setIsMuted(!isMuted);
@@ -14,24 +26,23 @@ const AudioPlayer = (props) => {
 
   const { isPlaying, isLooping, setPlaying, name } = props;
 
+  // adds listener for the ended boolean. when the audio ends, set the isPlaying state to false
+  // when the component unmounts, we leave the listener
   useEffect(() => {
     audio.addEventListener("ended", () => {
       audio.currentTime = 0;
-      console.log("ended");
       setPlaying(false);
     });
     return () => {
       audio.removeEventListener("ended", () => {
         audio.currentTime = 0;
-        console.log("ended");
         setPlaying(false);
       });
     };
   }, []);
 
+  // the main logic of the audio player. each time the state changes, we check what to update
   useEffect(() => {
-    console.log("is playing: ", isPlaying);
-    console.log("is looping: ", isLooping);
     if (isLooping) {
       audio.loop = true;
     } else if (!isLooping) {
@@ -47,7 +58,7 @@ const AudioPlayer = (props) => {
     } else if ((isPlaying && !isMuted) || (audio.ended && !isMuted)) {
       audio.play();
     }
-  }, [isPlaying, isLooping, audio, isMuted]);
+  }, [isPlaying, isLooping, audio, isMuted]); // list of dependencies we watch
 
   return (
     <React.Fragment>

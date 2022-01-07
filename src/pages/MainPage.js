@@ -3,35 +3,42 @@ import ToggleButton from "react-toggle-button";
 
 import shake from "../Loop files/_tambourine_shake_higher.mp3";
 import bvoc from "../Loop files/B VOC.mp3";
-import alltrack from "../Loop files/ALL TRACK.mp3";
 import drums from "../Loop files/DRUMS.mp3";
 import hevoc from "../Loop files/HE HE VOC.mp3";
 import highvoc from "../Loop files/HIGH VOC.mp3";
 import jibrish from "../Loop files/JIBRISH.mp3";
 import lead from "../Loop files/LEAD 1.mp3";
-// import uuhovoc from "../Loop files/UUHO VOC.mp3";
+import uuhovoc from "../Loop files/UUHO VOC.mp3";
+// import alltrack from "../Loop files/ALL TRACK.mp3";
 
 import AudioPlayer from "../components/AudioPlayer";
 import Button from "../components/Button";
 import "./MainPage.css";
 
+/*
+  Main page component
+*/
 const MainPage = () => {
   const [isLooping, setIsLooping] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // handles the play button
   const playHandle = async () => {
     console.log("Play");
     setIsPlaying(() => true);
   };
+  // handles the stop button
   const stopHandle = () => {
     console.log("Stop");
     setIsPlaying(() => false);
   };
 
+  // render all the 8 players.
   return (
     <div className="page">
       <div className="audio-players">
         <div className="cursor">
+          {/*change the class of the line based on the playing state*/}
           <div className={isPlaying ? "line-loop" : "line"}>
             <div className="circle" />
           </div>
@@ -53,12 +60,12 @@ const MainPage = () => {
           name="B VOC"
         />
         <AudioPlayer
-          src={alltrack}
+          src={uuhovoc}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
           backgroundColor={"#FF5959"}
-          name="ALL TRACK"
+          name="UUHO VOC"
         />
         <AudioPlayer
           src={drums}
@@ -100,7 +107,6 @@ const MainPage = () => {
           backgroundColor={"#146356"}
           name="LEAD 1"
         />
-        {/* <AudioPlayer src={uuhovoc} /> */}
       </div>
       <div className="controls">
         <Button name="Play" onClick={playHandle} />
