@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ToggleButton from "react-toggle-button";
 
 import "./AudioPlayer.css";
-import "./Button";
 
 const AudioPlayer = (props) => {
   const [audio] = useState(new Audio(props.src));
@@ -13,9 +12,26 @@ const AudioPlayer = (props) => {
     setIsMuted(!isMuted);
   };
 
-  const { isPlaying, isLooping } = props;
+  const { isPlaying, isLooping, setPlaying } = props;
 
   useEffect(() => {
+    audio.addEventListener("ended", () => {
+      audio.currentTime = 0;
+      console.log("ended");
+      setPlaying(false);
+    });
+    return () => {
+      audio.removeEventListener("ended", () => {
+        audio.currentTime = 0;
+        console.log("ended");
+        setPlaying(false);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("is playing: ", isPlaying);
+    console.log("is looping: ", isLooping);
     if (isLooping) {
       audio.loop = true;
     } else if (!isLooping) {
@@ -27,10 +43,8 @@ const AudioPlayer = (props) => {
       audio.muted = false;
     }
     if (!isPlaying) {
-      console.log("loading");
       audio.load();
     } else if ((isPlaying && !isMuted) || (audio.ended && !isMuted)) {
-      console.log("playing");
       audio.play();
     }
   }, [isPlaying, isLooping, audio, isMuted]);
@@ -38,6 +52,7 @@ const AudioPlayer = (props) => {
   return (
     <div className="audio-block">
       <div className="checkbox">
+        <label className="label">Mute</label>
         <ToggleButton value={isMuted} onToggle={handleMute} />
       </div>
     </div>

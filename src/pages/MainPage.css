@@ -2,6 +2,11 @@
   text-align: left;
   position: relative;
 }
+.loop-label {
+  position: absolute;
+  flex: auto;
+  bottom: 33px;
+}
 .audio-players {
   margin-top: 5px;
   margin-left: 20px;
@@ -13,13 +18,12 @@
 }
 .cursor {
   margin-top: 10px;
-  margin-left: 20px;
-  width: 70%;
+  width: 70.7%;
   height: 10px;
   position: relative;
 }
 .line {
-  height: 415px;
+  height: 410px;
   width: 1px;
   position: absolute;
   background-color: black;
@@ -27,15 +31,16 @@
   align-items: center;
   justify-content: center;
 }
-.line-move {
-  height: 415px;
+
+.line-loop {
+  height: 410px;
   width: 1px;
   position: absolute;
   background-color: black;
   z-index: 1;
   animation-name: move;
-  animation-duration: 17s;
-  animation-iteration-count: 1;
+  animation-duration: 17.7s;
+  animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: linear;
 }
@@ -56,5 +61,3 @@
     left: 100%;
   }
 }
-
-@media (height);

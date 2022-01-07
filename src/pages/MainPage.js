@@ -30,41 +30,70 @@ const MainPage = () => {
 
   return (
     <div className="page">
-      <div className="cursor">
-        <div className={isPlaying ? "line-move" : "line"}>
-          <div className="circle" />
-        </div>
-      </div>
       <div className="audio-players">
-        <AudioPlayer src={shake} isPlaying={isPlaying} isLooping={isLooping} />
-        <AudioPlayer src={bvoc} isPlaying={isPlaying} isLooping={isLooping} />
+        <div className="cursor">
+          <div className={isPlaying ? "line-loop" : "line"}>
+            <div className="circle" />
+          </div>
+        </div>
+        <AudioPlayer
+          src={shake}
+          isPlaying={isPlaying}
+          isLooping={isLooping}
+          setPlaying={setIsPlaying}
+        />
+        <AudioPlayer
+          src={bvoc}
+          isPlaying={isPlaying}
+          isLooping={isLooping}
+          setPlaying={setIsPlaying}
+        />
         <AudioPlayer
           src={alltrack}
           isPlaying={isPlaying}
           isLooping={isLooping}
+          setPlaying={setIsPlaying}
         />
-        <AudioPlayer src={drums} isPlaying={isPlaying} isLooping={isLooping} />
-        <AudioPlayer src={hevoc} isPlaying={isPlaying} isLooping={isLooping} />
+        <AudioPlayer
+          src={drums}
+          isPlaying={isPlaying}
+          isLooping={isLooping}
+          setPlaying={setIsPlaying}
+        />
+        <AudioPlayer
+          src={hevoc}
+          isPlaying={isPlaying}
+          isLooping={isLooping}
+          setPlaying={setIsPlaying}
+        />
         <AudioPlayer
           src={highvoc}
           isPlaying={isPlaying}
           isLooping={isLooping}
+          setPlaying={setIsPlaying}
         />
         <AudioPlayer
           src={jibrish}
           isPlaying={isPlaying}
           isLooping={isLooping}
+          setPlaying={setIsPlaying}
         />
-        <AudioPlayer src={lead} isPlaying={isPlaying} isLooping={isLooping} />
+        <AudioPlayer
+          src={lead}
+          isPlaying={isPlaying}
+          isLooping={isLooping}
+          setPlaying={setIsPlaying}
+        />
         {/* <AudioPlayer src={uuhovoc} /> */}
       </div>
       <div className="controls">
         <Button name="Play" onClick={playHandle} />
-        <Button name="Stop" onClick={stopHandle} />
+        <label className="loop-label">Loop</label>
         <ToggleButton
           value={isLooping}
           onToggle={() => setIsLooping(!isLooping)}
         />
+        <Button name="Stop" onClick={stopHandle} />
       </div>
     </div>
   );
