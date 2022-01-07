@@ -30,7 +30,11 @@ const MainPage = () => {
 
   return (
     <div className="page">
-      <input className="slider" type="range" min="0" max="17000" readOnly />
+      <div className="cursor">
+        <div className={isPlaying ? "line-move" : "line"}>
+          <div className="circle" />
+        </div>
+      </div>
       <div className="audio-players">
         <AudioPlayer src={shake} isPlaying={isPlaying} isLooping={isLooping} />
         <AudioPlayer src={bvoc} isPlaying={isPlaying} isLooping={isLooping} />

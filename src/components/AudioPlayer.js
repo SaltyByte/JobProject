@@ -16,7 +16,6 @@ const AudioPlayer = (props) => {
   const { isPlaying, isLooping } = props;
 
   useEffect(() => {
-    console.log("Inside useEffect");
     if (isLooping) {
       audio.loop = true;
     } else if (!isLooping) {
@@ -28,8 +27,10 @@ const AudioPlayer = (props) => {
       audio.muted = false;
     }
     if (!isPlaying) {
+      console.log("loading");
       audio.load();
-    } else if ((isPlaying && !isMuted) || audio.ended) {
+    } else if ((isPlaying && !isMuted) || (audio.ended && !isMuted)) {
+      console.log("playing");
       audio.play();
     }
   }, [isPlaying, isLooping, audio, isMuted]);
