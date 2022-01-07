@@ -18,10 +18,19 @@ import "./MainPage.css";
 const MainPage = () => {
   const [isLooping, setIsLooping] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  let pointerValue = 0;
 
-  const playHandle = () => {
+  function timeout(delay) {
+    return new Promise((res) => setTimeout(res, delay));
+  }
+
+  const playHandle = async () => {
     console.log("Play");
     setIsPlaying(() => true);
+    for (let i = 0; i < 17000; i++) {
+      await timeout(10);
+      pointerValue += 10;
+    }
   };
   const stopHandle = () => {
     console.log("Stop");
@@ -30,6 +39,14 @@ const MainPage = () => {
 
   return (
     <div className="page">
+      <input
+        className="slider"
+        type="range"
+        min="0"
+        max="17000"
+        value={pointerValue}
+        readOnly
+      />
       <div className="audio-players">
         <AudioPlayer src={shake} isPlaying={isPlaying} isLooping={isLooping} />
         <AudioPlayer src={bvoc} isPlaying={isPlaying} isLooping={isLooping} />

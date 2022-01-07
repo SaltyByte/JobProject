@@ -13,11 +13,13 @@ const AudioPlayer = (props) => {
     setIsMuted(!isMuted);
   };
 
+  const { isPlaying, isLooping } = props;
+
   useEffect(() => {
     console.log("Inside useEffect");
-    if (props.isLooping) {
+    if (isLooping) {
       audio.loop = true;
-    } else if (!props.isLooping) {
+    } else if (!isLooping) {
       audio.loop = false;
     }
     if (isMuted) {
@@ -25,12 +27,12 @@ const AudioPlayer = (props) => {
     } else if (!isMuted) {
       audio.muted = false;
     }
-    if (!props.isPlaying) {
-      audio.pause();
-    } else if ((props.isPlaying && !isMuted) || audio.ended) {
+    if (!isPlaying) {
+      audio.load();
+    } else if ((isPlaying && !isMuted) || audio.ended) {
       audio.play();
     }
-  }, [props.isPlaying, props.isLooping, audio, isMuted]);
+  }, [isPlaying, isLooping, audio, isMuted]);
 
   return (
     <div className="audio-block">

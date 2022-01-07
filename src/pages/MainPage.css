@@ -11,3 +11,30 @@
   display: flex;
   justify-content: center;
 }
+.slider {
+  margin-left: 30px;
+  width: 60%;
+  height: 0px;
+}
+
+/* for chrome/safari */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 60px;
+  background: #000;
+  cursor: pointer;
+  border: 5px solid lawngreen;
+  border-radius: 4px;
+}
+
+/* for firefox */
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 60px;
+  background: #000;
+  cursor: pointer;
+  border: 5px solid lawngreen;
+  border-radius: 4px;
+}
