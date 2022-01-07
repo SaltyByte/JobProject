@@ -41,48 +41,64 @@ const MainPage = () => {
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#406882"}
+          name="Tambourine Shake Higher"
         />
         <AudioPlayer
           src={bvoc}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#3E8E7E"}
+          name="B VOC"
         />
         <AudioPlayer
           src={alltrack}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#FF5959"}
+          name="ALL TRACK"
         />
         <AudioPlayer
           src={drums}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#B958A5"}
+          name="DRUMS"
         />
         <AudioPlayer
           src={hevoc}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#F3C892"}
+          name="HE HE VOC"
         />
         <AudioPlayer
           src={highvoc}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#D3DEDC"}
+          name="HIGH VOC"
         />
         <AudioPlayer
           src={jibrish}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#B3541E"}
+          name="JIBRISH"
         />
         <AudioPlayer
           src={lead}
           isPlaying={isPlaying}
           isLooping={isLooping}
           setPlaying={setIsPlaying}
+          backgroundColor={"#146356"}
+          name="LEAD 1"
         />
         {/* <AudioPlayer src={uuhovoc} /> */}
       </div>

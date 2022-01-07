@@ -12,7 +12,7 @@ const AudioPlayer = (props) => {
     setIsMuted(!isMuted);
   };
 
-  const { isPlaying, isLooping, setPlaying } = props;
+  const { isPlaying, isLooping, setPlaying, name } = props;
 
   useEffect(() => {
     audio.addEventListener("ended", () => {
@@ -50,12 +50,18 @@ const AudioPlayer = (props) => {
   }, [isPlaying, isLooping, audio, isMuted]);
 
   return (
-    <div className="audio-block">
-      <div className="checkbox">
-        <label className="label">Mute</label>
-        <ToggleButton value={isMuted} onToggle={handleMute} />
+    <React.Fragment>
+      <div
+        className="audio-block"
+        style={{ backgroundColor: props.backgroundColor }}
+      >
+        <label className="name">{name}</label>
+        <div className="checkbox">
+          <label className="label">Mute</label>
+          <ToggleButton value={isMuted} onToggle={handleMute} />
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
