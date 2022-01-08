@@ -55,7 +55,7 @@ const AudioPlayer = (props) => {
     }
     if (!isPlaying) {
       audio.load();
-    } else if ((isPlaying && !isMuted) || (audio.ended && !isMuted)) {
+    } else if (isPlaying || audio.ended) {
       audio.play();
     }
   }, [isPlaying, isLooping, audio, isMuted]); // list of dependencies we watch

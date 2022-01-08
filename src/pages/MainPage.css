@@ -23,9 +23,10 @@ html {
 }
 .cursor {
   margin-top: 10px;
-  width: 70.7%;
+  width: 71.7%;
   height: 10px;
   position: relative;
+  background-color: aqua;
 }
 .line {
   height: 408px;
