@@ -18,7 +18,5 @@
 }
 .name {
   position: absolute;
-  right: 0px;
-  transform: translateX(-370px);
-  top: 9px;
+  top: 8px;
 }

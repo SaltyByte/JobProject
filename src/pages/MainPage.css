@@ -28,7 +28,7 @@ html {
   position: relative;
 }
 .line {
-  height: 410px;
+  height: 408px;
   width: 1px;
   position: absolute;
   background-color: #30475e;
@@ -38,7 +38,7 @@ html {
 }
 
 .line-loop {
-  height: 410px;
+  height: 408px;
   width: 1px;
   position: absolute;
   background-color: #30475e;
